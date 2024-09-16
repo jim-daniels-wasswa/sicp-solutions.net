@@ -137,7 +137,7 @@ Now that we have understood why the guess can't get better, we can look at why `
 
 Because we have run out of precision, and are using large numbers, `(- (square guess) x))` can't be below `0.001`, thus making the infinite loop.
 
-I mentioned above that a 64-bits floating-point number has "from 15 to 17 significant decimal digits precision". Since "12345678901234" has 14 significant decimal digits and "0.001" has 3 significant decimal digits, and 14 + 3 = 17, we can get a sense of why the problem happens. We are asking for a very precise solution for a very large number. Here, like the problem with small numbers, the issue is that the precision required is absolute and not relative to the scale of the numbers.
+I mentioned above that a 64-bits floating-point number has "from 15 to 17 significant decimal digits precision". Since "12345678901234" has 14 significant decimal digits and "0.001" has 1 significant decimal digits, and 14 + 1 = 15, we can get a sense of why the problem happens. We are asking for a very precise solution for a very large number. Here, like the problem with small numbers, the issue is that the precision required is absolute and not relative to the scale of the numbers.
 
 If we are very lucky, `guess` will converge to a fixed point where the rounded results of `(- (square guess) x)` is evaluated to exactly `0.0` and the evaluation stops.
 
